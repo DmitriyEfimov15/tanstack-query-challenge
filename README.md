@@ -14,30 +14,84 @@
   Мгновенное обновление UI без ожидания ответа сервера
 
 - 🧹 Управление кешем:
-  - `cancelQueries`
-  - `removeQueries`
-  - `refetchQueries`
-  - `invalidateQueries`
+    - `cancelQueries`
+    - `removeQueries`
+    - `refetchQueries`
+    - `invalidateQueries`
 
 - 🎯 `select` пропс  
   Трансформация и оптимизация данных на уровне запроса
 
 - ⏱ Настройка времени жизни данных:
-  - `staleTime`
-  - `gcTime`
+    - `staleTime`
+    - `gcTime`
 
 ---
 
 ## 🛠 Технический стек
 
 ### Frontend
+
 - ⚛ **Next.js 16**
 - 🎨 **Shadcn UI**
 - 📡 **TanStack Query**
 - ⚡ **FSD**
 
 ### Backend
+
 - 🐱 **NestJS**
 - 🧬 **Prisma**
 - 🐘 **PostgreSQL**
 - ⚡ **Redis**
+
+# Запуск проекта
+
+## Backend
+
+### 1. Настройка переменных окружения
+
+Создайте файл `.env` в корневой папке backend и заполните его по примеру:
+
+```env
+DATABASE_URL="postgresql://postgres:root@localhost:5433/tanstack_challenge?schema=public"
+POSTGRES_DB=tanstack_challenge
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=root
+REDIS_HOST=localhost
+PORT=4000
+CLIENT_URL=http://localhost:3000
+```
+
+### 2. Поднять PostgreSQL и Redis
+
+🔹 Локально
+
+- (через установленные PostgreSQL и Redis)
+
+🔹 Докер:
+
+```bash
+docker compose up -d
+```
+
+### 3. Запустить
+
+```bash
+npm run start:dev
+```
+
+## Frontend:
+
+### 1. Настройка переменных окружения
+
+Создайте файл `.env` в корневой папке backend и заполните его по примеру:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000/api
+```
+
+### 2. Запустить
+
+```bash
+npm run :dev
+```
